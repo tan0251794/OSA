@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Prroduct Manager 
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row main-frame">
+        <div class="border sub-frame-1">
+            <ul>
+                <li> <a class="active" href="../">Order Manager</a>
+                <li> <a href="">Product Manager</a>
+                <li> <a href="../pack">Pack Manager</a>
+            </ul>
+        </div>    
+        <div class="border sub-frame-2">
+            <table>
+                <tr  class="tr-title">
+                    <td class="tr-title">Product Name</td>
+                    <td class="tr-title">Order No</td>
+                    <td class="tr-title">Order Date</td>
+                    <td class="tr-title">Name</td>
+                    <td class="tr-title">PACK NO</td>
+                    <td class="tr-title">Status</td>
+                </tr>
+                {% for product in products %}
+                    <tr  class="tr-medium">
+                        <td class="tr-medium">{{product.product_name}}</td>
+                        <td class="tr-medium">{{product.order.order_no}}</td>
+                        <td class="tr-medium">{{product.order.order_date}}</td>
+                        <td class="tr-medium">{{product.order.customer_address}}</td>
+                        <td class="tr-medium">{{product.pack}}</td>
+                        <td class="tr-medium">{{product.status}}</td>
+                    </tr>
+                {% endfor %}
+                {% comment %} {% if len(orders)<10 %}
+                
+                {% endif %} {% endcomment %}
+                {% for i in '0123456789'|make_list %}
+                    <tr class="tr-clone">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+
+                <tr>
+                </tr>
+                </table>
+        </div> 
+    </div>
+</div>
+
+{%endblock  %}

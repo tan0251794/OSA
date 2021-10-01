@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Pack Manager 
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row main-frame">
+        <div class="border sub-frame-1">
+            <ul>
+                <li> <a class="active" href="../">Order Manager</a>
+                <li> <a href="../product">Product Manager</a>
+                <li> <a href="">Pack Manager</a>
+            </ul>
+        </div>    
+        <div class="border sub-frame-2">
+            <table>
+                <tr  class="tr-title">
+                    <td class="tr-title">PACK NO</td>
+                    <td class="tr-title">Total Price</td>
+                    <td class="tr-title">Total Weight</td>
+                    <td class="tr-title">Oversea Fee</td>
+                    <td class="tr-title">Foreign Domestic Fee</td>
+                    <td class="tr-title">VN Domestic Fee</td>
+                    <td class="tr-title">To Start Ship Date</td>
+                    <td class="tr-title">Arrived Date</td>
+                    <td class="tr-title">Status</td>
+                </tr>
+                {% for pack in packs %}
+                    <tr  class="tr-medium">
+                        <td class="tr-medium"><a href="../pack/edit/{{pack.id}}">{{pack.pack_no}}</a></td>
+                        <td class="tr-medium">{{pack.total_price}}</td>
+                        <td class="tr-medium">{{pack.total_weight}}</td>
+                        <td class="tr-medium">{{pack.oversea_ship_fee}}</td>
+                        <td class="tr-medium">{{pack.foreign_domestic_fee}}</td>
+                        <td class="tr-medium">{{pack.vn_domestic_fee}}</td>
+                        <td class="tr-medium">{{pack.to_start_ship_date}}</td>
+                        <td class="tr-medium">{{pack.arrived_date}}</td>
+                        <td class="tr-medium">{{pack.status}}</td>
+                    </tr>
+                {% endfor %}
+
+                {% for i in '0123456789'|make_list %}
+                    <tr class="tr-clone">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+
+                <tr>
+                </tr>
+                </table>
+                <input class="btn-create" type="button" value="Create New Pack"/>
+        </div> 
+    </div>
+</div>
+
+{%endblock  %}
