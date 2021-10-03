@@ -1,18 +1,21 @@
 from rest_framework.generics import (
+    DestroyAPIView,
     ListAPIView,
     RetrieveAPIView,
     CreateAPIView,
+    RetrieveDestroyAPIView,
     RetrieveUpdateAPIView
 )
 
 from .serializers import (
     OrderListSerializers, 
     OrderCreateSerializers,
+    PackListSerializers,
     ProductCreateSerializers, 
     ProductListSerializers
 )
 
-from ..models import Order, Product
+from ..models import Order, Pack, Product
 
 
 ##------------------------------------------------------------------------------
@@ -31,6 +34,11 @@ class ProductDetailAPIView(RetrieveAPIView):
 class ProductCreateAPIView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductCreateSerializers
+
+class ProductCreateAPIView(RetrieveUpdateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductListSerializers
+    lookup_field= 'id'
 
 ##------------------------------------------------------------------------------
 ## ORDER
@@ -56,3 +64,17 @@ class OrderUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderCreateSerializers
     lookup_field= 'id'
+
+class OrderDeleteAPIView(RetrieveDestroyAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderListSerializers
+    lookup_field= 'id'
+
+
+##------------------------------------------------------------------------------
+## PACK
+##------------------------------------------------------------------------------
+
+class PackListAPIView(ListAPIView):
+    queryset = Pack.objects.all()
+    serializer_class = PackListSerializers

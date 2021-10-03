@@ -10,6 +10,7 @@ class ProductListSerializers(serializers.ModelSerializer):
     class Meta:
         model = Product 
         fields = [
+            'id',
             'product_name',
             'quantity',
             'product_url',
@@ -47,6 +48,7 @@ class OrderListSerializers(serializers.ModelSerializer):
     class Meta:
         model = Order 
         fields = [
+            'id',
             'order_no',
             'order_date',
             'customer_id',
@@ -86,3 +88,14 @@ class OrderCreateSerializers(serializers.ModelSerializer):
             'domestic_delivery_method',
             'payment_method',
     ]
+
+
+    
+##------------------------------------------------------------------------------
+## PACK
+##------------------------------------------------------------------------------
+class PackListSerializers(serializers.ModelSerializer):
+
+    class Meta:
+        model = Pack 
+        fields = '__all__'
