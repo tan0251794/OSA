@@ -10,9 +10,9 @@
     <div class="row main-frame">
         <div class="border sub-frame-1">
             <ul>
-                <li> <a class="active" href="../">Order Manager</a>
+                <li> <a href="../">Order Manager</a>
                 <li> <a href="../product">Product Manager</a>
-                <li> <a href="">Pack Manager</a>
+                <li> <a class="active" href="">Pack Manager</a>
             </ul>
         </div>    
         <div class="border sub-frame-2">
@@ -30,7 +30,7 @@
                 </tr>
                 {% for pack in packs %}
                     <tr  class="tr-medium">
-                        <td class="tr-medium"><a href="../pack/edit/{{pack.id}}">{{pack.pack_no}}</a></td>
+                        <td class="tr-medium"><a href="../pack/edit/?q={{pack.id}}">{{pack.pack_no}}</a></td>
                         <td class="tr-medium">{{pack.total_price}}</td>
                         <td class="tr-medium">{{pack.total_weight}}</td>
                         <td class="tr-medium">{{pack.oversea_ship_fee}}</td>
@@ -59,7 +59,10 @@
                 <tr>
                 </tr>
                 </table>
-                <input class="btn-create" type="button" value="Create New Pack"/>
+                
+                <a href="../pack/edit/?q=create_new">
+                    <input class="btn-create" type="button" value="Create New Pack"/>
+                </a>
         </div> 
     </div>
 </div>

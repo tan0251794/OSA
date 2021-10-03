@@ -20,9 +20,9 @@
                 <div class="col-8">
 
                     <div class="row ">
-                        <div class="field col-4 ">customer_name {{form.customer_name}}</div>
-                        <div class="field col-4 ">customer_name {{form.customer_name}}</div>
-                        <div class="field col-4 white-space"></div>
+                        <div class="field col-4 ">Order No {{form.order_no}}</div>
+                        <div class="field col-4 ">Order Date {{form.order_date}}</div>
+                        <div class="field col-4 ">customer_address {{form.customer_address}}</div>
                     </div>
 
                     <div class="row ">
@@ -40,25 +40,26 @@
                     <div class="row">
                         <div class="field-remove-border col-4 row">
                             <div class="  col-6 ">
-                                total_product_price {{form.total_product_price}}
-                                estimated_total_weight {{form.estimated_total_weight}}
-                                fix_total_weight {{form.fix_total_weight}}
+                                Total product price {{form.total_product_price}}
+                                Estimated total weight {{form.estimated_total_weight}}
+                                Fix total weight {{form.fix_total_weight}}
                             </div>
                             <div class=" col-6">
                                 <div class="white-space"></div>
                                 <div class="white-space"></div>
-                                estimated_ship_fee {{form.estimated_ship_fee}}
+                                Estimated ship fee {{form.estimated_ship_fee}}
                             </div>
                         </div>
                         <div class="field-mid col-4 ">
                             <div class="white-space"></div>
                             <div class="white-space"></div>
-                            fix_ship_fee {{form.fix_ship_fee}}
+                            Fix ship fee {{form.fix_ship_fee}}
                         </div>
                         <div class="field-remove-border col-4 ">
                             <div class="white-space"></div>
-                            <div class="white-space"></div>
-                            fix_total_fee {{form.fix_total_fee}}
+                            estimated_total_fee {{form.estimated_total_fee}}
+                            Fix total fee {{form.fix_total_fee}}
+                            
                         </div>
                     </div>
                 </div>
@@ -76,89 +77,104 @@
 
                     <div class="row col-12 field-memo ">
                         {{form.memo}}
+                        
                     </div>
                 </div>
 
-
-
-            {% for form in multiple_forms %}
-                <HR class="hr-edit">
-                <span><b>PRODUCT INFORMATION </b> No. {{forloop.counter}}</span>
-                <div class="row product-form">
-                    <div class="col-9">
-                        <div class="row" style="width:100%">
-                            <div class="field col-6">
-                                product_name {{form.product_name}}
-                            </div>
-                            <div class="field col-2">
-                                quantity {{form.quantity}}
-                            </div>   
-                            <div class="field col-2">
-                                price {{form.price}}
-                            </div>   
-                            <div class="field col-2">
-                                total_price {{form.total_price}}
-                            </div>                                                           
-                        </div>
-                        <div class="row" style="margin-left:0px">
-                            <div class="col-3 border">
-                                <img src="{{MEDIA_URL}}/media/default.png" width="100%"/>
-                            </div>
-                            <div class="col-9">
-                                <div class="row">
-                                    <div class="col-5"> 
-                                        product_url {{form.product_url}}
-                                    </div>
-                                    <div class="row col-7">
-                                        <div class="col-4">
-                                            estimated_weight {{form.estimated_weight}}
-                                        </div>
-                                        <div class="col-4">
-                                            measurement_weight {{form.measurement_weight}}
-                                        </div>
-                                        <div class="col-4">
-                                            total_product_price {{form.ship_company}}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                            total_product_price {{form.product_name}}
-                                    </div>
-                                    <div class="col-6">
-                                            ship_company {{form.ship_company}}
-                                    </div>    
-                                </div> 
-
-                                <div class="row col-6">
-                                    {{form.memo_from_customer}}
-                                </div>
-                            </div>  
-
-                        </div>
-                    </div>
-                    <div class="col-3">
-                            <div class="col-10 choices">
-                                {{form.status}}
-                            </div>    
-                            <div class="col-10 choices">
-                                {{form.pack}}
-                            </div>    
-                            <div class="col-5">
-                                <input class="btn-product" type="submit" value="Delete"/>
-                            </div>                                                             
-                    </div>
-                </div>
-            {% endfor %}
-                
             </form>
 
+
+                <HR class="hr-edit">
+
+                {% for product in products %}
+                <form action='{% url 'update-product' product.initial.id %}' method="POST">
+                {% csrf_token%}
+                    <span><b>PRODUCT INFORMATION </b> No.{{forloop.counter}}</span>
+
+                    <div class="row product-form">
+                        <div class="col-9">
+                            <div class="row" style="width:100%">
+                                <div class="field col-6">
+                                    product_name {{product.product_name}}
+                                </div>
+                                <div class="field col-2">
+                                    quantity {{product.quantity}}
+                                </div>   
+                                <div class="field col-2">
+                                    price {{product.price}}
+                                </div>   
+                                <div class="field col-2">
+                                    total_price {{product.total_price}}
+                                </div>                                                           
+                            </div>
+                            <div class="row" style="margin-left:0px">
+                                <div class="col-3 border">
+                                    <img src="{{MEDIA_URL}}/media/default.png" width="100%"/>
+                                </div>
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-5"> 
+                                            product_url {{product.product_url}}
+                                        </div>
+                                        <div class="row col-7">
+                                            <div class="col-4">
+                                                estimated_weight {{product.estimated_weight}}
+                                            </div>
+                                            <div class="col-4">
+                                                measurement_weight {{product.measurement_weight}}
+                                            </div>
+                                            {% comment %} <div class="col-4">
+                                                total_product_price {{product.total_product_price}}
+                                            </div> {% endcomment %}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                                comfirm_notifed_fig {{product.comfirm_notifed_fig}}
+                                        </div>
+                                        <div class="col-6">
+                                                ship_company {{product.ship_company}}
+                                        </div>    
+                                    </div> 
+
+                                    <div class="row col-6">
+                                        {{product.memo_from_customer}}
+                                    </div>
+                                </div>  
+
+                            </div>
+                        </div>
+                        <div class="col-3">
+                                <div class="col-10 choices">
+                                    {{product.status}}
+                                </div>    
+                                <div class="col-10 choices">
+                                    {{product.pack}}
+                                    
+                                </div>    
+                                <div class="col-5">
+                                    <input class="btn-create" type="submit" value="UPDATE"/>
+
+                                    <input class="btn-product" type="submit"
+                                    onclick="location.href='{% url 'delete-product' current_id product.initial.id %}'"
+                                    value="DELETE"/>
+                                </div>                                                             
+                            </div>
+                        </div> 
+                        </form>
+            {% endfor %}
+            
+
+            <HR class="hr-edit">
+            {% if current_id %}
+                <button type="submit" onclick="location.href='{% url 'increase-product' current_id %}'">
+                    Product Increase
+                </button>
+            {% endif %}
             
 
            
-            <HR class="hr-edit">
-            <input class="btn-edit" type="button" value="Product Increase"/>
         </div> 
     </div>
 </div>
