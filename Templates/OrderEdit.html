@@ -168,7 +168,7 @@
 
             <HR class="hr-edit">
             {% if current_id %}
-                <button type="submit" onclick="location.href='{% url 'increase-product' current_id %}'">
+                <button class="btn-increase" type="submit" onclick="location.href='{% url 'increase-product' current_id %}'">
                     Product Increase
                 </button>
             {% endif %}
