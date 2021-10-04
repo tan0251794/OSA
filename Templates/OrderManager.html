@@ -16,37 +16,37 @@
         </div>    
         <div class="border sub-frame-2">
             <table>
-                <tr  class="tr-title">
-                    <td class="tr-title">Order No</td>
-                    <td class="tr-title">Order Date</td>
-                    <td class="tr-title">Customer Name</td>
-                    <td class="tr-title">Address</td>
-                    <td class="tr-title">TEL</td>
-                    <td class="tr-title">How to Pickup</td>
-                    <td class="tr-title">Payment Method</td>
-                    <td class="tr-title">Delivery Date</td>
-                    <td class="tr-title">Delivery Time</td>
-                    <td class="tr-title">Status</td>
+                <tr>
+                    <td>Order No</td>
+                    <td>Order Date</td>
+                    <td>Customer Name</td>
+                    <td>Address</td>
+                    <td>TEL</td>
+                    <td>How to Pickup</td>
+                    <td>Payment Method</td>
+                    <td>Delivery Date</td>
+                    <td>Delivery Time</td>
+                    <td>Status</td>
                 </tr>
                 {% for order in orders %}
-                    <tr  class="tr-medium">
-                        <td class="tr-medium"><a href="../order/edit/?q={{order.id}}">{{order.order_no}}</a></td>
-                        <td class="tr-medium">{{order.order_date}}</td>
-                        <td class="tr-medium">{{order.customer_name}}</td>
-                        <td class="tr-medium">{{order.customer_address}}</td>
-                        <td class="tr-medium">{{order.customer_phone}}</td>
-                        <td class="tr-medium">{{order.domestic_delivery_method}}</td>
-                        <td class="tr-medium">{{order.payment_method}}</td>
-                        <td class="tr-medium">{{order.delivery_date}}</td>
-                        <td class="tr-medium">{{order.delivery_time}}</td>
-                        <td class="tr-medium">{{order.status}}</td>
+                    <tr  >
+                        <td ><a href="../order/edit/?q={{order.id}}">{{order.order_no}}</a></td>
+                        <td >{{order.order_date}}</td>
+                        <td >{{order.customer_name}}</td>
+                        <td >{{order.customer_address}}</td>
+                        <td >{{order.customer_phone}}</td>
+                        <td >{{order.domestic_delivery_method}}</td>
+                        <td >{{order.payment_method}}</td>
+                        <td >{{order.delivery_date}}</td>
+                        <td >{{order.delivery_time}}</td>
+                        <td >{{order.status}}</td>
                     </tr>
                 {% endfor %}
                 {% comment %} {% if len(orders)<10 %}
                 
                 {% endif %} {% endcomment %}
-                {% for i in '0123456789'|make_list %}
-                    <tr class="tr-clone">
+                {% for i in '01234567'|make_list %}
+                    <tr >
                         <td></td>
                         <td></td>
                         <td></td>
@@ -59,11 +59,21 @@
                         <td></td>
                     </tr>
                 {% endfor %}
-                <tr>
+                <tr class="tr-end">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                 </tr>
                 </table>
                 <a href="../order/edit/?q=create_new">
-                    <input class="btn-create" type="button" value="Create New Order"/>
+                    <input class="btn-manager-page" type="button" value="Create New Order"/>
                 </a>
                 
         </div> 

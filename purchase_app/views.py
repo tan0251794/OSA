@@ -62,7 +62,7 @@ def update_product(request, product_id):
     return HttpResponseRedirect("../"+newurl)
 
 
-def increase_product(request, _id):
+def add_product(request, _id):
     order = Order.objects.get(id=_id)
     product = Product.objects.create(
         product_name='',

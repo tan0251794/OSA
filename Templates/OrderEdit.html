@@ -20,42 +20,42 @@
                 <div class="col-8">
 
                     <div class="row ">
-                        <div class="field col-4 ">Order No {{form.order_no}}</div>
-                        <div class="field col-4 ">Order Date {{form.order_date}}</div>
-                        <div class="field col-4 ">customer_address {{form.customer_address}}</div>
+                        <div class=" col-4 ">Order No {{form.order_no}}</div>
+                        <div class=" col-4 ">Order Date {{form.order_date}}</div>
+                        <div class=" col-4 ">customer_address {{form.customer_address}}</div>
                     </div>
 
                     <div class="row ">
-                        <div class="field col-4 ">Customer Name {{form.customer_name}}</div>
-                        <div class="field col-4 ">Customer Phone Number {{form.customer_phone}}</div>
-                        <div class="field col-4 ">Customer e-mail {{form.customer_email}}</div>
+                        <div class=" col-4 ">Customer Name {{form.customer_name}}</div>
+                        <div class=" col-4 ">Customer Phone Number {{form.customer_phone}}</div>
+                        <div class=" col-4 ">Customer Email {{form.customer_email}}</div>
                     </div>
 
                     <div class="row ">
-                        <div class="choices col-4">{{form.domestic_delivery_method}}</div>
-                        <div class="choices col-4">{{form.payment_method}}</div>
-                        <div class="choices col-4">{{form.status}}</div>
+                        <div class=" col-4">{{form.domestic_delivery_method}}</div>
+                        <div class=" col-4">{{form.payment_method}}</div>
+                        <div class=" col-4">{{form.status}}</div>
                     </div>
 
-                    <div class="row">
-                        <div class="field-remove-border col-4 row">
-                            <div class="  col-6 ">
+                    <div class="row" style="width:100%;margin-left:0px">
+                        <div class="remove-border col-4 ">
+                            <div class="mini-block-1">
                                 Total product price {{form.total_product_price}}
                                 Estimated total weight {{form.estimated_total_weight}}
                                 Fix total weight {{form.fix_total_weight}}
                             </div>
-                            <div class=" col-6">
+                            <div class="mini-block-2">
                                 <div class="white-space"></div>
                                 <div class="white-space"></div>
                                 Estimated ship fee {{form.estimated_ship_fee}}
                             </div>
                         </div>
-                        <div class="field-mid col-4 ">
+                        <div class=" col-4">
                             <div class="white-space"></div>
                             <div class="white-space"></div>
                             Fix ship fee {{form.fix_ship_fee}}
                         </div>
-                        <div class="field-remove-border col-4 ">
+                        <div class=" col-4">
                             <div class="white-space"></div>
                             estimated_total_fee {{form.estimated_total_fee}}
                             Fix total fee {{form.fix_total_fee}}
@@ -65,26 +65,25 @@
                 </div>
                 <div class="col-4">
 
-                    <div class="row white-space-button ">
-                        <div class="field col-2 "></div>
-                        <div class="field col-5 ">
+                    <div class="row">
+                        <div class=" col-1 "></div>
+                        <div class=" col-5 ">
                             <input class="btn-create" type="submit" value="Update Order"/>
                         </div>
-                        <div class="field col-5 ">
+                        <div class=" col-5 ">
                             <input class="btn-create" type="button" OnClick="" value="Push Notification"/>
                         </div>
                     </div>
 
-                    <div class="row col-12 field-memo ">
+                    <div class="row col-12 order-memo ">
                         {{form.memo}}
-                        
                     </div>
                 </div>
 
             </form>
 
 
-                <HR class="hr-edit">
+                <HR>
 
                 {% for product in products %}
                 <form action='{% url 'update-product' product.initial.id %}' method="POST">
@@ -94,17 +93,17 @@
                     <div class="row product-form">
                         <div class="col-9">
                             <div class="row" style="width:100%">
-                                <div class="field col-6">
-                                    product_name {{product.product_name}}
+                                <div class=" col-6">
+                                    Product Name {{product.product_name}}
                                 </div>
-                                <div class="field col-2">
-                                    quantity {{product.quantity}}
+                                <div class=" col-2">
+                                    Quantity {{product.quantity}}
                                 </div>   
-                                <div class="field col-2">
-                                    price {{product.price}}
+                                <div class=" col-2">
+                                    Price {{product.price}}
                                 </div>   
-                                <div class="field col-2">
-                                    total_price {{product.total_price}}
+                                <div class=" col-2">
+                                    Total price {{product.total_price}}
                                 </div>                                                           
                             </div>
                             <div class="row" style="margin-left:0px">
@@ -112,33 +111,29 @@
                                     <img src="{{MEDIA_URL}}/media/default.png" width="100%"/>
                                 </div>
                                 <div class="col-9">
+
+                                    <div class="col-10">
+                                            Product URL {{product.product_url}}
+                                    </div>  
+
+
                                     <div class="row">
                                         <div class="col-5"> 
-                                            product_url {{product.product_url}}
+                                            Ship Company {{product.ship_company}}
                                         </div>
                                         <div class="row col-7">
-                                            <div class="col-4">
-                                                estimated_weight {{product.estimated_weight}}
+                                            <div class="col-6">
+                                                Estimated weight {{product.estimated_weight}}
                                             </div>
-                                            <div class="col-4">
-                                                measurement_weight {{product.measurement_weight}}
+                                            <div class="col-6">
+                                                Measurement weight {{product.measurement_weight}}
                                             </div>
-                                            {% comment %} <div class="col-4">
-                                                total_product_price {{product.total_product_price}}
-                                            </div> {% endcomment %}
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-4">
-                                                comfirm_notifed_fig {{product.comfirm_notifed_fig}}
-                                        </div>
-                                        <div class="col-6">
-                                                ship_company {{product.ship_company}}
-                                        </div>    
-                                    </div> 
+                                    
 
-                                    <div class="row col-6">
+                                    <div class="col-10 product-memo">
                                         {{product.memo_from_customer}}
                                     </div>
                                 </div>  
@@ -146,18 +141,20 @@
                             </div>
                         </div>
                         <div class="col-3">
-                                <div class="col-10 choices">
+                                <div class="col-10 ">
                                     {{product.status}}
                                 </div>    
-                                <div class="col-10 choices">
+                                <div class="col-10 ">
                                     {{product.pack}}
                                     
-                                </div>    
-                                <div class="col-5">
-                                    <input class="btn-create" type="submit" value="UPDATE"/>
+                                </div>   
+                                <div class="col-5" style="margin-left:82px">
+                                    <input type="submit" value="UPDATE" 
+                                    style="width:150px; margin-top: 20px;"/>
 
-                                    <input class="btn-product" type="submit"
+                                    <input type="submit"
                                     onclick="location.href='{% url 'delete-product' current_id product.initial.id %}'"
+                                    style="width:150px; margin-top:80px; background-color:maroon!important"
                                     value="DELETE"/>
                                 </div>                                                             
                             </div>
@@ -166,11 +163,9 @@
             {% endfor %}
             
 
-            <HR class="hr-edit">
+            <HR>
             {% if current_id %}
-                <button class="btn-increase" type="submit" onclick="location.href='{% url 'increase-product' current_id %}'">
-                    Product Increase
-                </button>
+                <input type="submit" onclick="location.href='{% url 'add-product' current_id %}'" value="Add Product"/>
             {% endif %}
             
 

@@ -42,8 +42,8 @@
                     </tr>
                 {% endfor %}
 
-                {% for i in '0123456789'|make_list %}
-                    <tr class="tr-clone">
+                {% for i in '01234567'|make_list %}
+                    <tr >
                         <td></td>
                         <td></td>
                         <td></td>
@@ -55,13 +55,21 @@
                         <td></td>
                     </tr>
                 {% endfor %}
-
-                <tr>
+                <tr class="tr-end">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                 </tr>
                 </table>
                 
                 <a href="../pack/edit/?q=create_new">
-                    <input class="btn-create" type="button" value="Create New Pack"/>
+                    <input class="btn-manager-page" type="button" value="Create New Pack"/>
                 </a>
         </div> 
     </div>
