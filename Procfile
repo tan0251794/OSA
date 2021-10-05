@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath OSA_HEROKU OSA.wsgi
