@@ -93,7 +93,7 @@ class UpdateProductForm(forms.ModelForm):
             'ship_company',
             'comfirm_notifed_fig',
             'memo_from_customer',
-            'pack'
+            'pack',
         ] 
 
         widgets = {
@@ -114,6 +114,7 @@ class UpdateProductForm(forms.ModelForm):
         product_model.ship_company = self.cleaned_data['ship_company']  
         product_model.comfirm_notifed_fig = self.cleaned_data['comfirm_notifed_fig']
         product_model.memo_from_customer = self.cleaned_data['memo_from_customer']  
+
 
         if commit:
             product_model.save()

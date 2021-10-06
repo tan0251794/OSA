@@ -85,6 +85,9 @@ class Order(models.Model):
             self.order_no = str(dt.now().strftime(
                 '%m%d')) + '-' + str(dt.now().strftime("%M%S")) + '-0' + str(self.id)
 
+            '''
+                Order price depend on child-product price
+            '''
             products = Product.objects.filter(order=self)
             self.total_product_price = 0
             self.estimated_total_weight = 0
@@ -99,6 +102,8 @@ class Order(models.Model):
                 self.fix_total_weight += p.estimated_weight
                 self.fix_ship_fee += p.total_price
                 self.fix_total_fee += p.total_price
+
+
 
             self.save(flag=False, *args, **kwargs)
 
