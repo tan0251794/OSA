@@ -10,6 +10,7 @@ from purchase_app.api.views import (
     ProductDetailAPIView,
     OrderListAPIView,
     OrderDetailAPIView,
+    ProductUpdateAPIView,
 )
 
 urlpatterns = [
@@ -17,8 +18,8 @@ urlpatterns = [
     path('product/', ProductListAPIView.as_view(), name='list'),
     path('product/create/', ProductCreateAPIView.as_view(), name='create'),
     path('product/<slug:id>/', ProductDetailAPIView.as_view(), name='detail'),
-    path('product/<slug:id>/edit/', ProductCreateAPIView.as_view(), name='update'),
-    # path('<slug:slug>/delete/', PostListAPIView.as_view(), name='delete'),
+    path('product/<slug:id>/edit/', ProductUpdateAPIView.as_view(), name='update'),
+    #path('<slug:slug>/delete/', PostListAPIView.as_view(), name='delete'),
 
     #ORDER
     path('order/', OrderListAPIView.as_view(), name='list'),

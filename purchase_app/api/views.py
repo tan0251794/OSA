@@ -10,6 +10,7 @@ from rest_framework.generics import (
 from .serializers import (
     OrderListSerializers, 
     OrderCreateSerializers,
+    OrderUpdateSerializers,
     PackListSerializers,
     ProductCreateSerializers, 
     ProductListSerializers
@@ -32,10 +33,9 @@ class ProductDetailAPIView(RetrieveAPIView):
     lookup_field= 'id'
 
 class ProductCreateAPIView(CreateAPIView):
-    queryset = Product.objects.all()
     serializer_class = ProductCreateSerializers
 
-class ProductCreateAPIView(RetrieveUpdateAPIView):
+class ProductUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductListSerializers
     lookup_field= 'id'
@@ -54,7 +54,6 @@ class OrderDetailAPIView(RetrieveAPIView):
     lookup_field= 'id'
 
 class OrderCreateAPIView(CreateAPIView):
-    queryset = Order.objects.all()
     serializer_class = OrderCreateSerializers
 
     def perform_create(self, serializer):
@@ -62,7 +61,7 @@ class OrderCreateAPIView(CreateAPIView):
 
 class OrderUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderCreateSerializers
+    serializer_class = OrderUpdateSerializers
     lookup_field= 'id'
 
 class OrderDeleteAPIView(RetrieveDestroyAPIView):

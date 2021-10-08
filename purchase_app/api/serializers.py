@@ -14,8 +14,8 @@ class ProductListSerializers(serializers.ModelSerializer):
             'product_name',
             'quantity',
             'product_url',
-            'order_id',
-            'pack_id',
+            'order',
+            'pack',
             'price',
             'total_price',
             'estimated_weight',
@@ -30,11 +30,11 @@ class ProductCreateSerializers(serializers.ModelSerializer):
     class Meta:
         model = Product 
         fields = [
+            'product_url',
             'product_name',
             'quantity',
-            'product_url',
             'memo_from_customer',
-            'order_id'
+            'order'
         ]
 
 
@@ -80,6 +80,7 @@ class OrderCreateSerializers(serializers.ModelSerializer):
     class Meta:
         model = Order 
         fields = [
+            # 'order_no',
             'order_date',
             'customer_name',
             'customer_phone',
@@ -87,6 +88,32 @@ class OrderCreateSerializers(serializers.ModelSerializer):
             'customer_email',
             'domestic_delivery_method',
             'payment_method',
+    ]
+
+class OrderUpdateSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Order 
+        fields = [
+            # 'order_no',
+            'order_date',
+            # 'customer_id',
+            'customer_name',
+            'customer_phone',
+            'customer_address',
+            'customer_email',
+            'status',
+            # 'total_product_price',
+            # 'estimated_total_weight',
+            # 'estimated_ship_fee',
+            # 'estimated_total_fee',
+            'fix_total_weight',
+            'fix_ship_fee',
+            'fix_total_fee',
+            'domestic_delivery_method',
+            'payment_method',
+            'memo',
+            'delivery_date',
+            'delivery_time',
     ]
 
 

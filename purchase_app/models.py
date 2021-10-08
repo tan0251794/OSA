@@ -1,7 +1,9 @@
 from django.db import models
 from datetime import datetime as dt
+from decimal import *
 from django.conf import settings
-
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 class Order(models.Model):
 
@@ -82,30 +84,27 @@ class Order(models.Model):
     def save(self, flag=True, *args, **kwargs):
         super(Order, self).save(*args, **kwargs)
         if flag:
-            self.order_no = str(dt.now().strftime(
-                '%m%d')) + '-' + str(dt.now().strftime("%M%S")) + '-0' + str(self.id)
-
             '''
                 Order price depend on child-product price
             '''
             products = Product.objects.filter(order=self)
-            self.total_product_price = 0
             self.estimated_total_weight = 0
             self.estimated_ship_fee = 0
-            self.fix_total_weight = 0
-            self.fix_ship_fee = 0
-            self.fix_total_fee = 0
+
             for p in products:
-                self.total_product_price += p.total_price
                 self.estimated_total_weight += p.estimated_weight
                 self.estimated_ship_fee += p.total_price
-                self.fix_total_weight += p.estimated_weight
-                self.fix_ship_fee += p.total_price
-                self.fix_total_fee += p.total_price
+                self.estimated_total_fee = Decimal(self.estimated_total_weight) * self.estimated_ship_fee
+                self.total_product_price = self.estimated_total_fee + self.fix_total_fee
 
 
-
-            self.save(flag=False, *args, **kwargs)
+@receiver(pre_save, sender=Order)
+def pre_save_receiver(sender, instance, **kwargs):
+    if not instance.order_no:
+        object_qs = Order.objects.all().order_by('-id')
+        last_id =  object_qs.first().id
+        instance.order_no = str(dt.now().strftime(
+                '%m%d')) + '-' + str(dt.now().strftime("%M%S")) + '-0' + str(last_id+1)
 
 
 class Product(models.Model):
