@@ -102,7 +102,10 @@ class Order(models.Model):
 def pre_save_receiver(sender, instance, **kwargs):
     if not instance.order_no:
         object_qs = Order.objects.all().order_by('-id')
-        last_id =  object_qs.first().id
+        if len(object_qs) >= 1:
+            last_id =  object_qs.first().id
+        else:
+            last_id = 0
         instance.order_no = str(dt.now().strftime(
                 '%m%d')) + '-' + str(dt.now().strftime("%M%S")) + '-0' + str(last_id+1)
 

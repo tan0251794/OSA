@@ -1,5 +1,6 @@
 from django.urls import path
 
+
 from purchase_app.views import (
     delete_product,
     add_product,
@@ -23,4 +24,6 @@ urlpatterns = [
     #PACK VIEWS
     path('pack/', pack, name='cms-pack'),
     path('pack/edit/', pack_edit, name='cms-pack-edit'),
+    #AUTH
+
 ]

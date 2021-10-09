@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sign up Form</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <ul>
+    {% if user.is_authenticated %}
+        <li> Welcome {{user.name}}
+        <li><a href="./log-out/">log-out</a>
+    {% else %}
+        <li><a href="./log-in/">log-in</a>
+    {% endif %}
+  </ul>
+<h2>SIGN UP FORM</h2>
+    <form class="col-6" action="" method="POST">
+      {% csrf_token %} 
+      {% for key,value in form.errors.items %}
+        {{value}}  
+      {% endfor %}
+            {{form.username}} 
+            {{form.password}}
+          <span>Don't an account? click</span> <a href="/create">Register</a>
+          <input type="submit" value="Log In"/>
+    </form>
+</body>
+</html>

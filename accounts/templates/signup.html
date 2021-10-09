@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sign-in Form</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <ul>
+    {% if user.is_authenticated %}
+        <li> Welcome {{user.name}}
+        <li><a href="../log-out/">log-out</a>
+    {% else %}
+        <li><a href="../log-in/">log-in</a>
+    {% endif %}
+  </ul>
+
+<h2>SIGN IN FORM</h2>
+        <form class="col-6" action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+        <input type="submit" value="Sign Up"/>
+        </form>
+</body>
+</html>
