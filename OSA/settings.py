@@ -68,23 +68,23 @@ WSGI_APPLICATION = 'OSA.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 #postgres://ueupixppedfzad:a323b5463df62956a3ab468c73cf6c17952355a48060cb928ad7ae140f05e6bc@ec2-44-198-154-255.compute-1.amazonaws.com:5432/dtruv7pql1dru
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dtruv7pql1dru',
-#         'HOST': 'ec2-44-198-154-255.compute-1.amazonaws.com',
-#         'POST': 5432,
-#         'USER': 'ueupixppedfzad',
-#         'PASSWORD': 'a323b5463df62956a3ab468c73cf6c17952355a48060cb928ad7ae140f05e6bc',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dtruv7pql1dru',
+        'HOST': 'ec2-44-198-154-255.compute-1.amazonaws.com',
+        'POST': 5432,
+        'USER': 'ueupixppedfzad',
+        'PASSWORD': 'a323b5463df62956a3ab468c73cf6c17952355a48060cb928ad7ae140f05e6bc',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
