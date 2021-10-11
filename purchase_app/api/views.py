@@ -1,3 +1,5 @@
+from django.db.models import Q
+
 from rest_framework.generics import (
     DestroyAPIView,
     ListAPIView,
@@ -48,6 +50,10 @@ class OrderListAPIView(ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderListSerializers
 
+    def get_queryset(self, *args, **kwargs):
+        return Order.objects.filter(customer_id=self.request.user)
+
+
 class OrderDetailAPIView(RetrieveAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderListSerializers
@@ -59,6 +65,7 @@ class OrderCreateAPIView(CreateAPIView):
     def perform_create(self, serializer):
         return serializer.save(customer_id=self.request.user)
 
+
 class OrderUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderUpdateSerializers
@@ -68,6 +75,7 @@ class OrderDeleteAPIView(RetrieveDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderListSerializers
     lookup_field= 'id'
+
 
 
 ##------------------------------------------------------------------------------

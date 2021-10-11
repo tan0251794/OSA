@@ -1,0 +1,12 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+
+{% block title %} FB Login
+{% endblock title %}
+
+{% block content %}
+        <a href='{% provider_login_url "facebook" method="oauth2" %}' >Facebook Connect</a>
+{% endblock %}

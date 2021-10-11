@@ -22,11 +22,11 @@ urlpatterns = [
     #path('<slug:slug>/delete/', PostListAPIView.as_view(), name='delete'),
 
     #ORDER
-    path('order/', OrderListAPIView.as_view(), name='list'),
-    path('order/create/', OrderCreateAPIView.as_view(), name='create'),
-    path('order/<slug:id>/', OrderDetailAPIView.as_view(), name='detail'),
-    path('order/<slug:id>/edit/', OrderUpdateAPIView.as_view(), name='update'),
-    path('order/<slug:id>/delete/', OrderDeleteAPIView.as_view(), name='delete'),
+    path('order/', OrderListAPIView.as_view(), name='order-list'),
+    path('order/create/', OrderCreateAPIView.as_view(), name='order-create'),
+    path('order/<slug:id>/', OrderDetailAPIView.as_view(), name='order-detail'),
+    path('order/<slug:id>/edit/', OrderUpdateAPIView.as_view(), name='order-update'),
+    path('order/<slug:id>/delete/', OrderDeleteAPIView.as_view(), name='order-delete'),
 
     #PACK
     path('pack/', PackListAPIView.as_view(), name='list'),

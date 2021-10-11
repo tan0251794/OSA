@@ -20,3 +20,6 @@ from django.views.decorators.csrf import csrf_protect
 
 # def home_view(request):
 #     return render(request, 'home.html')
+
+def fb_login(request):
+    return render(request, 'Facebook.html')

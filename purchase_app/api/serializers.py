@@ -80,6 +80,7 @@ class OrderCreateSerializers(serializers.ModelSerializer):
     class Meta:
         model = Order 
         fields = [
+            'id',
             # 'order_no',
             'order_date',
             'customer_name',

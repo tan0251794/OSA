@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-2&qybcjq!t7rhknwr$4t!5cm94@)x5wc2_w!m+(if%irm0^j@3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['osa-api.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['osa-api.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -27,10 +27,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'rest_framework.authtoken',
     'purchase_app',
-    'accounts'
+    'accounts',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook'
 ]
 
 MIDDLEWARE = [
@@ -107,6 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
@@ -115,6 +122,21 @@ AUTH_USER_MODEL = 'accounts.UserAccounts'
 
 LOGIN_REDIRECT_URL ="../order/"
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_ADAPTER = 'accounts.allauth.AccountAdapter'
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_USERNAME_REQUIRED = False
+
+SITE_ID = 2
 
 LANGUAGE_CODE = 'en-us'
 
@@ -139,5 +161,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
