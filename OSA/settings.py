@@ -136,7 +136,7 @@ ACCOUNT_ADAPTER = 'accounts.allauth.AccountAdapter'
 # ACCOUNT_UNIQUE_EMAIL = True
 # ACCOUNT_USERNAME_REQUIRED = False
 
-SITE_ID = 1
+SITE_ID = 4
 
 LANGUAGE_CODE = 'en-us'
 
