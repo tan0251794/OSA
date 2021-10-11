@@ -8,5 +8,8 @@
 {% endblock title %}
 
 {% block content %}
-        <a href='{% provider_login_url "facebook" method="oauth2" %}' >Facebook Connect</a>
+        {% comment %} <a href='{% provider_login_url "facebook" method="oauth2" %}' >Facebook Connect</a> {% endcomment %}
+
+<a href="{% provider_login_url "google" openid="https://www.google.com/accounts/o8/id" %}">Google</a>
+
 {% endblock %}
