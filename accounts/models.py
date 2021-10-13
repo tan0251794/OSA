@@ -5,19 +5,19 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self, username, password=None):
-        # if not email:
-        #     raise ValueError('User must have an email address')
-        #email = self.normalize_email(email)
-        user = self.model(username=username)
+    def create_user(self, email, username, password=None):
+        if not email:
+            raise ValueError('User must have an email address')
+        email = self.normalize_email(email)
+        user = self.model(username=username, email=email)
         user.set_password(password)
         user.save()
 
         return user
 
-    def create_superuser(self, username, password):
+    def create_superuser(self, email, username, password):
         user = self.create_user(
-            #email,
+            email,
             username,
             password=password,
         )
@@ -27,13 +27,13 @@ class UserAccountManager(BaseUserManager):
         return user
 
 class UserAccounts(AbstractBaseUser, PermissionsMixin):
-    #email = models.EmailField(max_length=255)
+    email = models.EmailField(max_length=255, unique=True)
     username = models.CharField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
 
     objects = UserAccountManager()
 

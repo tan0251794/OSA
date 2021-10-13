@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 
+
 # @csrf_protect
 # def account(request):
 #     form = AccountForm()
@@ -21,5 +22,6 @@ from django.views.decorators.csrf import csrf_protect
 # def home_view(request):
 #     return render(request, 'home.html')
 
-def fb_login(request):
+def social_login(request):
     return render(request, 'Facebook.html')
+

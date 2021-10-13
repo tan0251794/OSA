@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from rest_framework.authtoken.views import obtain_auth_token
 
-from accounts.views import fb_login
+from accounts.views import social_login
 
 urlpatterns = [
     #path('create/', account , name='user form'),
@@ -11,6 +11,6 @@ urlpatterns = [
     #path('log-out/', auth_views.LogoutView.as_view(next_page='/accounts/')),
     #path('', home_view , name='home'),
     path('login/', obtain_auth_token, name='login'),
-    path('fb-login/', fb_login, name='fb-login'),
+    # path('social-login/', social_login, name='social-login'),
 ]
 

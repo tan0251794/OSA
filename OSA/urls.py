@@ -19,5 +19,8 @@ urlpatterns = [
     path('user/', include(accounts.urls), name='user'),
     # path('', auth_views.LoginView.as_view(template_name='login.html')),
     # path('log-out', auth_views.LogoutView.as_view(next_page='/')),
-    path('accounts/', include('allauth.urls')),
+    # path('accounts/', include('allauth.urls')),
+    path('api-auth/', include('drf_social_oauth2.urls',namespace='drf'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
