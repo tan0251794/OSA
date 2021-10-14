@@ -9,9 +9,9 @@
 - install virtualenv: python -m venv venv
 - active virtualenv: source venv/bin/activate
 - (venv) pip install -r requirements.txt
-- python manage.py makemigrations
-- python manage.py migrate 
-- python manage.py runserver 
+- (venv) python manage.py makemigrations
+- (venv) python manage.py migrate 
+- (venv) python manage.py runserver 
 
 
 ## API PATH: 
