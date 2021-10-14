@@ -14,7 +14,7 @@
 - python manage.py runserver 
 
 
-## API REDIRECT: 
+## API PATH: 
 + ORDER:
 - detail: http://127.0.0.1:8000/api/order/<:id>/
 - create: http://127.0.0.1:8000/api/order/create/
@@ -35,7 +35,7 @@
 - update: http://127.0.0.1:8000/api/pack/<:id>/edit/
 - delete: http://127.0.0.1:8000/api/pack/<:id>/delete/
 
-## BACKEND SYSTEM REDIRECT: 
+## BACKEND SYSTEM PATH: 
 + order management： http://127.0.0.1:8000/
 + product management： http://127.0.0.1:8000/product/
 + pack management： http://127.0.0.1:8000/pack/
