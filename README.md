@@ -7,10 +7,10 @@ Oversea Shipping API
 
 ## API DIRECT: 
 + order:
-detail: http://127.0.0.1:8000/api/order/<:id>/
-create: http://127.0.0.1:8000/api/order/create/
-update: http://127.0.0.1:8000/api/order/<:id>/edit/
-delete: http://127.0.0.1:8000/api/order/<:id>/delete/
+- detail: http://127.0.0.1:8000/api/order/<:id>/
+- create: http://127.0.0.1:8000/api/order/create/
+- update: http://127.0.0.1:8000/api/order/<:id>/edit/
+- delete: http://127.0.0.1:8000/api/order/<:id>/delete/
 
 + product:
 list:   http://127.0.0.1:8000/api/product/
