@@ -1,5 +1,5 @@
 # OSA
-Oversea Shipping API
+![#f03c15]Oversea Shipping API `#f03c15`
 
 ## Deployed at: https://osa-api.herokuapp.com/
 
