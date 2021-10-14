@@ -1,5 +1,7 @@
 # OSA
-![#f03c15]Oversea Shipping API `#f03c15`
+```diff
+! Oversea Shipping API
+```
 
 ## Deployed at: https://osa-api.herokuapp.com/
 
