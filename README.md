@@ -36,9 +36,13 @@
 - delete: http://127.0.0.1:8000/api/pack/<:id>/delete/
 
 ## BACKEND SYSTEM PATH: 
-+ order management： http://127.0.0.1:8000/
++ order management：   http://127.0.0.1:8000/
 + product management： http://127.0.0.1:8000/product/
-+ pack management： http://127.0.0.1:8000/pack/
++ pack management：    http://127.0.0.1:8000/pack/
+
+## ADMIN SITE:
++ admin: http://127.0.0.1:8000/admin/
++ auth:  http://127.0.0.1:8000/api/login/
 
 
 ## .iap file for ios: ...
