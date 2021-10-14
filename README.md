@@ -2,8 +2,13 @@
 Oversea Shipping API
 
 ## Deployed at: https://osa-api.herokuapp.com/
-## IAP for ios: ...
-## React native frontend: ...
+
+## Guide to run the project locally: 
+- install virtualenv: python -m venv venv
+- active virtualenv: source venv/bin/activate
+- (venv) pip install -r requirements.txt
+- python manage.py runserver 
+
 
 ## API DIRECT: 
 + ORDER:
@@ -30,3 +35,7 @@ Oversea Shipping API
 + order management： http://127.0.0.1:8000/
 + product management： http://127.0.0.1:8000/product/
 + pack management： http://127.0.0.1:8000/pack/
+
+
+## IAP for ios: ...
+## React native frontend: ...
