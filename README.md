@@ -4,6 +4,7 @@
 ```
 
 ## Deployed at: https://osa-api.herokuapp.com/
+## Frontend: https://github.com/tan0251794/OSA-Application
 
 ## Guide to run the project locally: 
 - install virtualenv: python -m venv venv
@@ -45,5 +46,3 @@
 + auth:  http://127.0.0.1:8000/api/login/
 
 
-## .app file for ios: https://expo.dev/accounts/jasonisme/projects/osa-application/builds/9c3e71db-0137-4683-b0e2-5cc3aaef6cca
-## Frontend: https://github.com/tan0251794/OSA-Application
