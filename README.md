@@ -45,5 +45,5 @@
 + auth:  http://127.0.0.1:8000/api/login/
 
 
-## .iap file for ios: ...
-## Frontend: ...
+## .app file for ios: https://expo.dev/accounts/jasonisme/projects/osa-application/builds/9c3e71db-0137-4683-b0e2-5cc3aaef6cca
+## Frontend: https://github.com/tan0251794/OSA-Application
