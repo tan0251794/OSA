@@ -45,4 +45,7 @@
 + admin: http://127.0.0.1:8000/admin/
 + auth:  http://127.0.0.1:8000/api/login/
 
+## Wireframe
+
+<img src="https://github.com/tan0251794/OSA-API/blob/master/media/osa_wireframe.png" />
 
